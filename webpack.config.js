@@ -39,8 +39,8 @@ module.exports = {
                     use: ['css-loader', {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: () => [autoprefixer]
-                        }
+                            plugins: () => [autoprefixer],
+                        },
                     }, 'resolve-url-loader', 'sass-loader']
                 })
             },
@@ -64,13 +64,17 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': process.env.NODE_ENV
+        }),
         extractCSS,
         new HtmlWebpackPlugin({
             template: 'src/index.hbs'
         }),
         new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         }),
         new CopyWebpackPlugin([{
             from: 'src/img',
