@@ -1,0 +1,42 @@
+.section {
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 50%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .top-annotation {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50px);
+    }
+
+    .left-annotation {
+        transform: rotate(-90deg) translateY(-50px);
+        position: absolute;
+        top: 50%;
+        left: 14px;
+    }
+
+    .title {
+        font-family: 'marked';
+        font-size: 72px;
+    }
+
+    .subtitle {
+        margin-top: 40px;
+    }
+
+    .header-border {
+        border: 1px solid white;
+        height: calc(100% - 100px);
+        width: calc(100% - 100px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+}

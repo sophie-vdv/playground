@@ -1,0 +1,20 @@
+// Text font + size
+.text-default {
+    font-family: 'Helvetica';
+    font-weight: 300;
+}
+
+.text-xs-small {
+    @extend .text-default;
+    font-size: 12px;
+}
+
+.text-small {
+    @extend .text-default;
+    font-size: 16px;
+}
+
+// Colors
+.color-white {
+    color: white;
+}

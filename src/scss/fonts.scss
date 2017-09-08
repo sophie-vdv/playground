@@ -1,6 +1,15 @@
 @font-face {
-    font-family: 'noto_serifbold';
-    src: url('../fonts/notoserif-bold.woff') format('woff');
+    font-family: 'marked';
+    src: url('../fonts/mark_my_words-webfont.eot');
+    src: url('../fonts/mark_my_words-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/mark_my_words-webfont.woff2') format('woff2'),
+    url('../fonts/mark_my_words-webfont.woff') format('woff'),
+    url('../fonts/mark_my_words-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+.top-annotation,
+.left-annotation {
+    letter-spacing: 3px;
 }

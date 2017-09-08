@@ -1,6 +1,6 @@
 import '../scss/_import.scss';
 import 'waypoints/lib/jquery.waypoints.js';
-
+import 'slick-carousel';
 
 /**
  * Get active slide on scroll using Waypoints

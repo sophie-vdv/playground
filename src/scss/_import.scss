@@ -1,3 +1,10 @@
 @import '~normalize.css';
-@import 'style.scss';
-@import 'fonts.scss';
+
+// Global
+@import 'helpers';
+@import 'fonts';
+
+// Section
+@import 'header';
+@import 'navigation';
+@import 'demo';
