@@ -1,8 +1,10 @@
-.nav {
+.nav,
+.nav-header {
     position: fixed;
     transform: translateY(-50px);
     top: 50%;
     right: 16px;
+    z-index: 10;
 
     .nav-item-container {
         padding: 4px;
@@ -14,16 +16,55 @@
         width: 8px;
         height: 8px;
 
-        &.is-active {
-            border: 2px solid white;
-        }
-
         .nav-item {
-            background-color: white;
             border-radius: 50%;
             width: 6px;
             height: 6px;
             display: block;
         }
+    }
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav {
+    .nav-item-container {
+        &.is-active {
+            border: 2px solid #B721FF;
+        }
+        .nav-item {
+            background-color: #B721FF;
+        }
+    }
+}
+
+.nav-header {
+    .nav-item-container {
+        &.is-active {
+            border: 2px solid white;
+        }
+        .nav-item {
+            background-color: white;
+        }
+    }
+}
+
+.section {
+    position: relative;
+
+    .top-annotation {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50px);
+    }
+
+    .left-annotation {
+        transform: rotate(-90deg) translateY(-50px);
+        position: absolute;
+        top: 50%;
+        left: 14px;
     }
 }
