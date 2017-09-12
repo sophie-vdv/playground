@@ -4,32 +4,59 @@ import 'slick-carousel/slick/slick.min.js';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+var gumshoe = require('gumshoe/dist/js/gumshoe.js');
+
 /**
  * Get active slide on scroll using Waypoints
  * @param directions
  */
-function getActiveSlide(direction) {
-    var prev = this.previous();
 
-    if (prev) {
-        $(prev).removeClass('active');
+function getActiveSlide(direction) {
+    $('.section').removeClass('active');
+
+    if (direction === 'down') {
+        $(this.element).addClass('active');
     }
 
-    $(this.element).toggleClass('active', direction === 'down').trigger('waypoint:' + direction);
+    else if (direction === 'up') {
+        $(this.element).removeClass('active').prev('.section').addClass('active');
+    }
 }
 
-// Carousel active slide stuff
+/**
+ * Apply color to navigation for each section
+ */
+function applyColorNav() {
+    if ($('#demo').hasClass('active')) {
+        $('.nav').addClass('nav-dark');
+    } else {
+        $('.nav').removeClass('nav-dark');
+    }
+}
+
 $('.section').waypoint(getActiveSlide, {offset: '60%'});
 
+$('.js-infos-block').waypoint(getActiveSlide, {offset: '80%'});
 
 $('.demo-carousel').slick({
     dots: true
 });
 
-$(window).scroll(function() {
-    if($('.demo-container').hasClass('active')){
-        $('.nav').removeClass('nav-header');
-    } else {
-        $('.nav').addClass('nav-header');
-    }
+gumshoe.init();
+
+$(window).scroll(applyColorNav);
+
+$(document).ready(function(){
+    $('a[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+
+        var target = this.hash;
+        var $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
+    });
 });
